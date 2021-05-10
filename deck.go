@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 //Create a new type of 'deck' which is a slice of strings, defining a new type (deck) that extends an existing type (string)
 type deck []string
@@ -29,4 +33,15 @@ func (d deck) print() {
 //function will return two values, both of type deck
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+//reciever function that takes a deck and converts it into one complete string seperated by commas
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",") //uses a function from strings package
+
+}
+
+//writes to file
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }

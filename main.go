@@ -3,6 +3,7 @@ package main
 func main() {
 
 	cards := newDeck() //newDeck function from deck.go
+	cards.saveToFile("my_cards")
 
 	//var card string = "Ace of Spades" //more explicit of way telling Go that 'card' is a String variable
 	/*card := newCard() //this lets Go infer the data type of the variable (:= only used when we FIRST instantiate a variable)
@@ -24,11 +25,11 @@ func main() {
 
 	//cards.print() //reciever function from deck.go
 
-	hand, remainingDeck := deal(cards, 5) //deal returns 2 values
+	//hand, remainingDeck := deal(cards, 5) //deal returns 2 values
 
 	//can call print on both of these variables since they are both of type deck
-	hand.print()
-	remainingDeck.print()
+	//hand.print()
+	//remainingDeck.print()
 }
 
 //function that returns type string ("Five of Diamonds")
